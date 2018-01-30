@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Service} from '../service/Service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(public get: Service) {
+
+  }
   title = 'app';
-}
+  getInfo() {
+    this.get.getInfo()
+      .subscribe((response) => {
+        console.log(response);
+    }
